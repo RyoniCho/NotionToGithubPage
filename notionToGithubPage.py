@@ -26,7 +26,7 @@ def FindMarkdownFile():
     notionMarkDownFile=''
     for f in os.listdir():
         if f.endswith('.md'):
-            if f.startswith('readme'):
+            if f.lower().startswith('readme'):
                 continue
             notionMarkDownFile=f
             break
@@ -59,6 +59,7 @@ def ModifiedMarkDownFile():
     notionMarkDownFile=FindMarkdownFile()
     notionMarkDownFolder=notionMarkDownFile.replace('.md','')
 
+    newfolderName="{}-{}".format(currentTimeStr,fileName)
     with open(notionMarkDownFile,'r') as f:
         
         n= f.read()
@@ -68,7 +69,7 @@ def ModifiedMarkDownFile():
             if line.startswith('!['):
                 path=ExportFilePath(line)
                 break
-        n=n.replace(path,'/assets/images/posts/{}'.format(fileName))
+        n=n.replace(path,'/assets/images/posts/{}'.format(newfolderName))
     
 
     #Write Modified MarkDown
@@ -81,8 +82,8 @@ def ModifiedMarkDownFile():
 
     #Move Resouces file and Remove Folder
     print("SRC:"+os.curdir+'/{}'.format(notionMarkDownFolder))
-    print("DES:"+os.curdir+'/assets/images/posts/{}'.format("{}-{}".format(currentTimeStr,fileName)))
-    shutil.move(os.curdir+'/{}'.format(notionMarkDownFolder),os.curdir+'/assets/images/posts/{}'.format("{}-{}".format(currentTimeStr,fileName)))
+    print("DES:"+os.curdir+'/assets/images/posts/{}'.format(newfolderName))
+    shutil.move(os.curdir+'/{}'.format(notionMarkDownFolder),os.curdir+'/assets/images/posts/{}'.format(newfolderName))
    
 
 
