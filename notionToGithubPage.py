@@ -26,6 +26,8 @@ def FindMarkdownFile():
     notionMarkDownFile=''
     for f in os.listdir():
         if f.endswith('.md'):
+            if f.startswith('readme'):
+                continue
             notionMarkDownFile=f
             break
     return notionMarkDownFile
