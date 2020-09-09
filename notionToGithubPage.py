@@ -81,8 +81,8 @@ def ModifiedMarkDownFile():
 
     #Move Resouces file and Remove Folder
     print("SRC:"+os.curdir+'/{}'.format(notionMarkDownFolder))
-    print("DES:"+os.curdir+'/assets/images/posts/{}'.format(fileName))
-    shutil.move(os.curdir+'/{}'.format(notionMarkDownFolder),os.curdir+'/assets/images/posts/{}'.format(fileName))
+    print("DES:"+os.curdir+'/assets/images/posts/{}'.format("{}-{}".format(currentTimeStr,fileName)))
+    shutil.move(os.curdir+'/{}'.format(notionMarkDownFolder),os.curdir+'/assets/images/posts/{}'.format("{}-{}".format(currentTimeStr,fileName)))
    
 
 
