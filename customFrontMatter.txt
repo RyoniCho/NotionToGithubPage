@@ -1,0 +1,13 @@
+header:
+    overlay_color: "#000"
+    overlay_filter: "0.5"
+    overlay_image: /assets/images/posts/TinyIsland_game.png
+    teaser: /assets/images/posts/TinyIsland_game.png
+  
+excerpt: "머신러닝 지도학습 기초(1)"
+
+categories: 
+- Development
+- machineLearning
+tag: 
+- ML
